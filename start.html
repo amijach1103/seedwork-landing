@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seedwork — You've had the idea. Now take the first step.</title>
+    <meta name="description" content="Seedwork gives you a clear first step — not a 10-page business plan. AI-guided planning, real follow-through, and a small group figuring it out alongside you.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Seedwork — You've had the idea. Now take the first step.">
+    <meta property="og:description" content="An AI-guided conversation that meets you where you are, a real plan you can act on this week, and a small group of people figuring it out alongside you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://joinseedwork.com/start">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+    <!-- PostHog -->
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_nrewLNNYZtNYaIVYz1MoaBkwzG05TqsVWcCnmD3duEZ', {api_host: 'https://us.i.posthog.com'});
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --text-light: #6b6b8a;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-light: #eff6ff;
+            --green: #059669;
+            --green-light: #ecfdf5;
+            --bg: #ffffff;
+            --bg-warm: #fafaf8;
+            --border: #e5e5e5;
+            --radius: 12px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Nav */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-cta:hover { text-decoration: underline; }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            line-height: 1.25;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .hero .subhead {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 40px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Who This Is For */
+        .who-section { background: var(--bg-warm); }
+
+        .who-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5rem;
+            margin-bottom: 28px;
+        }
+
+        .for-list, .not-for-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .for-list li, .not-for-list li {
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            line-height: 1.6;
+        }
+
+        .for-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .not-for-list li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .not-for-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        /* Problem */
+        .problem-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+        }
+
+        .problem-section p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .credibility-bridge {
+            margin-top: 48px;
+            padding: 32px;
+            background: var(--accent-light);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+        }
+
+        .credibility-bridge h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .credibility-bridge p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* What Seedwork Does */
+        .features-section { background: var(--bg-warm); }
+
+        .features-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.75rem;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .feature {
+            margin-bottom: 48px;
+        }
+
+        .feature:last-child { margin-bottom: 0; }
+
+        .feature-number {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .feature h3 {
+            font-size: 1.1875rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Waitlist */
+        .waitlist-section {
+            text-align: center;
+        }
+
+        .waitlist-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.75rem;
+            margin-bottom: 12px;
+        }
+
+        .waitlist-section .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.0625rem;
+            margin-bottom: 40px;
+        }
+
+        .signup-form {
+            max-width: 440px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group { margin-bottom: 16px; }
+
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input[type="email"]:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .checkbox-group label {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .signup-form .btn-primary {
+            width: 100%;
+            text-align: center;
+            font-size: 1.0625rem;
+            padding: 16px;
+        }
+
+        .form-note {
+            margin-top: 20px;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 32px 0;
+        }
+
+        .form-success h3 {
+            font-size: 1.25rem;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .form-success p {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            section { padding: 60px 0; }
+            .hero { padding: 72px 0 60px; }
+            .hero h1 { font-size: 1.875rem; }
+            .credibility-bridge { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Seedwork</a>
+            <a href="#signup" class="nav-cta">Get early access</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>You've had the idea.<br>You just don't know where to start.</h1>
+            <p class="subhead">Seedwork gives you a clear first step — not a 10-page business plan you'll never look at again. An AI-guided conversation that meets you where you are, a real plan you can act on this week, and a small group of people figuring it out alongside you.</p>
+            <a href="#signup" class="btn-primary">Get early access &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="who-section">
+        <div class="container">
+            <h2>This is for you if:</h2>
+            <ul class="for-list">
+                <li>You've been thinking about starting something for months (maybe years) and keep getting stuck</li>
+                <li>You don't have a mentor, a network, or $50K for an accelerator — you've got yourself and whatever time you can find</li>
+                <li>You've tried AI tools — they gave you a generic plan you never opened again</li>
+                <li>You want someone to help you take the first real step, not just think about it</li>
+            </ul>
+            <p class="not-for-label">This is NOT for you if:</p>
+            <ul class="not-for-list">
+                <li>You already have a funded startup and need operational tools</li>
+                <li>You're looking for an AI to run your business for you</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Problem + Credibility -->
+    <section class="problem-section">
+        <div class="container">
+            <h2>Sound familiar?</h2>
+            <p>You've googled everything. Watched the YouTube videos. Maybe asked ChatGPT. You got a business plan full of words like "market analysis" and "competitive landscape" — and then you closed the tab and did nothing.</p>
+            <p>You're not lazy. You're not unserious. You just don't have a clear next step, anyone to talk it through with, or a reason to keep going when life gets in the way.</p>
+
+            <div class="credibility-bridge">
+                <h3>This isn't another AI tool.</h3>
+                <p>Built by WGU Labs on a methodology refined over 15 years and 14+ cohorts of real entrepreneurs. It doesn't write a plan for you — it asks the questions that help you figure out what's actually worth building. A research team exploring how to make entrepreneurship accessible to everyone — not just people with connections and capital.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Seedwork Does -->
+    <section class="features-section">
+        <div class="container">
+            <h2>What Seedwork Does</h2>
+
+            <div class="feature">
+                <div class="feature-number">1</div>
+                <h3>A conversation, not a template</h3>
+                <p>A 5-minute AI-guided session that helps you get the idea out of your head and into a plan you can actually use. It asks you the hard questions — "Who specifically would pay for this?" "What can you do this week?" — and doesn't let you off the hook.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-number">2</div>
+                <h3>A plan you'll actually follow</h3>
+                <p>The plan is just the beginning. Seedwork checks in with you: "You said you'd reach out to 10 customers this week. How did it go?" It helps you adjust when reality doesn't match the plan — because it never does.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-number">3</div>
+                <h3>People who get it</h3>
+                <p>A small group (not a massive online community) of people in the same situation. You share what you're working on, get honest feedback, and keep each other going. Online, on your schedule.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Signup -->
+    <section class="waitlist-section" id="signup">
+        <div class="container">
+            <h2>We're opening early access to the first 100 people this spring.</h2>
+
+            <div class="signup-form" id="signupForm">
+                <div class="form-group">
+                    <input type="email" id="emailInput" placeholder="Your email address" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="contactMe">
+                    <label for="contactMe">I'd like to try the early version and share feedback</label>
+                </div>
+                <button type="button" class="btn-primary" id="submitBtn" onclick="handleSubmit()">Get early access &rarr;</button>
+                <p class="form-note">You'll get an email when we open access. If you check the box, we'll reach out personally — not to sell you something, but because you'll help us build it right.</p>
+            </div>
+
+            <div class="form-success" id="successMessage">
+                <h3>You're on the list!</h3>
+                <p>We'll be in touch soon. Thanks for being one of the first.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Built by <a href="https://www.wgulabs.org" target="_blank" rel="noopener">WGU Labs</a> — researchers and builders exploring how AI and community can make entrepreneurship accessible to everyone.</p>
+            <p style="margin-top: 12px;">Questions? <a href="mailto:seedwork@wgulabs.org">seedwork@wgulabs.org</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== CONFIGURATION =====
+        // Replace these values when ready to go live:
+
+        // Google Sheets Web App URL (see README for setup instructions)
+        const GOOGLE_SHEETS_URL = ''; // e.g., 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
+
+        // ===== UTM TRACKING =====
+        function getUTMParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                utm_source: params.get('utm_source') || '',
+                utm_medium: params.get('utm_medium') || '',
+                utm_campaign: params.get('utm_campaign') || '',
+                utm_content: params.get('utm_content') || '',
+            };
+        }
+
+        // ===== FORM SUBMISSION =====
+        async function handleSubmit() {
+            const email = document.getElementById('emailInput').value.trim();
+            const contactMe = document.getElementById('contactMe').checked;
+            const btn = document.getElementById('submitBtn');
+
+            // Basic validation
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                document.getElementById('emailInput').style.borderColor = '#ef4444';
+                document.getElementById('emailInput').focus();
+                return;
+            }
+
+            // Disable button
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+
+            const utm = getUTMParams();
+            const data = {
+                email: email,
+                contact_me: contactMe ? 'Yes' : 'No',
+                variant: 'A_stuck_dreamer',
+                utm_source: utm.utm_source,
+                utm_medium: utm.utm_medium,
+                utm_campaign: utm.utm_campaign,
+                utm_content: utm.utm_content,
+                referrer: document.referrer || 'direct',
+                page_url: window.location.href,
+                timestamp: new Date().toISOString(),
+                user_agent: navigator.userAgent,
+            };
+
+            // PostHog event (if loaded)
+            if (typeof posthog !== 'undefined') {
+                posthog.capture('waitlist_signup', {
+                    variant: 'A_stuck_dreamer',
+                    contact_me: contactMe,
+                    ...utm
+                });
+            }
+
+            // Send to Google Sheets
+            if (GOOGLE_SHEETS_URL) {
+                try {
+                    await fetch(GOOGLE_SHEETS_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    });
+                } catch (e) {
+                    console.error('Form submission error:', e);
+                }
+            } else {
+                // Log to console during development
+                console.log('SIGNUP DATA (connect Google Sheets to capture):', data);
+            }
+
+            // Show success
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        }
+
+        // Reset email border on input
+        document.getElementById('emailInput').addEventListener('input', function() {
+            this.style.borderColor = '';
+        });
+
+        // Track scroll depth (PostHog does this automatically, but also log to console)
+        let maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll) {
+                maxScroll = scrollPercent;
+            }
+        });
+
+        // Log page view with variant info
+        if (typeof posthog !== 'undefined') {
+            posthog.capture('$pageview', { variant: 'A_stuck_dreamer' });
+        }
+    </script>
+
+</body>
+</html>
