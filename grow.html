@@ -23,6 +23,12 @@
         posthog.init('phc_nrewLNNYZtNYaIVYz1MoaBkwzG05TqsVWcCnmD3duEZ', {api_host: 'https://us.i.posthog.com'});
     </script>
 
+    <!-- Reddit Pixel -->
+    <script>
+    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_iosbx3wche09",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_iosbx3wche09');rdt('track', 'PageVisit');
+    </script>
+    <!-- End Reddit Pixel -->
+
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -512,6 +518,12 @@
                 timestamp: new Date().toISOString(),
                 user_agent: navigator.userAgent,
             };
+
+            // Reddit Pixel conversion event with advanced matching
+            if (typeof rdt !== 'undefined') {
+                rdt('init', 'a2_iosbx3wche09', { email: email });
+                rdt('track', 'SignUp');
+            }
 
             if (typeof posthog !== 'undefined') {
                 posthog.capture('waitlist_signup', {
