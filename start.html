@@ -17,18 +17,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 
-    <!-- PostHog -->
-    <script>
-        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-        posthog.init('phc_nrewLNNYZtNYaIVYz1MoaBkwzG05TqsVWcCnmD3duEZ', {api_host: 'https://us.i.posthog.com'});
-    </script>
-
-    <!-- Reddit Pixel -->
-    <script>
-    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_iosbx3wche09",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);rdt('init','a2_iosbx3wche09');rdt('track', 'PageVisit');
-    </script>
-    <!-- End Reddit Pixel -->
-
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -393,7 +381,6 @@
     <nav>
         <div class="container">
             <a href="#" class="logo">Seedwork</a>
-            <a href="#signup" class="nav-cta">Join the waitlist</a>
         </div>
     </nav>
 
@@ -402,7 +389,6 @@
         <div class="container">
             <h1>You've had the idea.<br>You just don't know where to start.</h1>
             <p class="subhead">Seedwork helps you get your idea off the ground — with an AI-guided conversation that meets you where you are, a plan you can act on this week, and a small support group that keeps you moving when life gets in the way.</p>
-            <a href="#signup" class="btn-primary">Join the waitlist &rarr;</a>
         </div>
     </section>
 
@@ -458,31 +444,6 @@
         </div>
     </section>
 
-    <!-- Waitlist Signup -->
-    <section class="waitlist-section" id="signup">
-        <div class="container">
-            <h2>We're building this right now — and we want your input.</h2>
-            <p class="subtitle">Sign up to be one of the first to shape what this becomes.</p>
-
-            <div class="signup-form" id="signupForm">
-                <div class="form-group">
-                    <input type="email" id="emailInput" placeholder="Your email address" required>
-                </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="contactMe">
-                    <label for="contactMe">I'd like to share feedback and help shape what we build</label>
-                </div>
-                <button type="button" class="btn-primary" id="submitBtn" onclick="handleSubmit()">Join the waitlist &rarr;</button>
-                <p class="form-note">We'll let you know when it's ready. If you check the box, we'll reach out personally — not to sell you something, but because your input helps us build it right.</p>
-            </div>
-
-            <div class="form-success" id="successMessage">
-                <h3>You're on the list!</h3>
-                <p>We'll be in touch soon. Thanks for being one of the first.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -492,98 +453,13 @@
     </footer>
 
     <script>
-        // ===== CONFIGURATION =====
-        // Replace these values when ready to go live:
 
         // Google Sheets Web App URL (see README for setup instructions)
-        const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzwx2c9L24khb8KsaReCjygXotrAF5j1mPEyGfEYvK5rHzZlmItpvbZ7qOTaocVvvO3/exec';
 
-        // ===== UTM TRACKING =====
-        function getUTMParams() {
-            const params = new URLSearchParams(window.location.search);
-            return {
-                utm_source: params.get('utm_source') || '',
-                utm_medium: params.get('utm_medium') || '',
-                utm_campaign: params.get('utm_campaign') || '',
-                utm_content: params.get('utm_content') || '',
-            };
-        }
-
-        // ===== FORM SUBMISSION =====
-        async function handleSubmit() {
-            const email = document.getElementById('emailInput').value.trim();
-            const contactMe = document.getElementById('contactMe').checked;
-            const btn = document.getElementById('submitBtn');
-
-            // Basic validation
-            if (!email || !email.includes('@') || !email.includes('.')) {
-                document.getElementById('emailInput').style.borderColor = '#ef4444';
-                document.getElementById('emailInput').focus();
-                return;
-            }
-
-            // Disable button
-            btn.disabled = true;
-            btn.textContent = 'Submitting...';
-
-            const utm = getUTMParams();
-            const data = {
-                email: email,
-                contact_me: contactMe ? 'Yes' : 'No',
-                variant: 'A_stuck_dreamer',
-                utm_source: utm.utm_source,
-                utm_medium: utm.utm_medium,
-                utm_campaign: utm.utm_campaign,
-                utm_content: utm.utm_content,
-                referrer: document.referrer || 'direct',
-                page_url: window.location.href,
-                timestamp: new Date().toISOString(),
-                user_agent: navigator.userAgent,
-            };
-
-            // PostHog event (if loaded)
-            // Reddit Pixel conversion event with advanced matching
-            if (typeof rdt !== 'undefined') {
-                rdt('init', 'a2_iosbx3wche09', { email: email });
-                rdt('track', 'SignUp');
-            }
-
-            if (typeof posthog !== 'undefined') {
-                posthog.capture('waitlist_signup', {
-                    variant: 'A_stuck_dreamer',
-                    contact_me: contactMe,
-                    ...utm
-                });
-            }
-
-            // Send to Google Sheets
-            if (GOOGLE_SHEETS_URL) {
-                try {
-                    await fetch(GOOGLE_SHEETS_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data),
-                    });
-                } catch (e) {
-                    console.error('Form submission error:', e);
-                }
-            } else {
-                // Log to console during development
-                console.log('SIGNUP DATA (connect Google Sheets to capture):', data);
-            }
-
-            // Show success
-            document.getElementById('signupForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
-        }
-
-        // Reset email border on input
-        document.getElementById('emailInput').addEventListener('input', function() {
-            this.style.borderColor = '';
-        });
-
-        // Track scroll depth (PostHog does this automatically, but also log to console)
+        
+        
+        
+        // Track scroll depth locally
         let maxScroll = 0;
         window.addEventListener('scroll', function() {
             const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
@@ -593,10 +469,7 @@
         });
 
         // Log page view with variant info
-        if (typeof posthog !== 'undefined') {
-            posthog.capture('$pageview', { variant: 'A_stuck_dreamer' });
-        }
-    </script>
+            </script>
 
 </body>
 </html>
